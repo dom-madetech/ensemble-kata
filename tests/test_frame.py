@@ -11,9 +11,9 @@ class Frame:
 
 no_strike_frame = Frame("34")
 
+strike_frame = Frame("X")
 
-
-strike_frame = Frame('X')
+spare_frame = Frame("3/")
 
 
 
@@ -27,3 +27,6 @@ def test_frame_is_strike():
 
 def test_frame_is_not_spare():
     assert no_strike_frame.is_spare() == False
+
+def test_frame_is_spare():
+    assert spare_frame.is_spare() == True
