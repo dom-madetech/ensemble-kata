@@ -29,8 +29,8 @@ def test_frame_no_score():
 def test_frame_with_score():
     assert get_score_from_frame(Frame("34")) == 7
 
-# def test_frame_with_spare():
-#     assert get_score_from_frame("4/") == 10
+def test_frame_with_spare():
+    assert get_score_from_frame(Frame("4/")) == 10
 
 # def test_two_frames_with_no_score():
 #     assert get_score_from_game("00 00") == 0
