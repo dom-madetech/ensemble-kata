@@ -18,7 +18,6 @@ def get_score_from_game(game):
     return total
 
 
-
 def test_frame_with_strike():
     assert get_score_from_frame("X") == 10
 
@@ -48,4 +47,7 @@ def test_two_frames_with_strike_and_nine():
 
 def test_two_frames_with_spare_and_one():
     assert get_score_from_game("3/ 10") == 12
+
+
+
 
