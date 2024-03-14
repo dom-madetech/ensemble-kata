@@ -10,10 +10,11 @@ def get_score_from_game(game):
     frames = game.split(" ")
     total = 0
     for index, frame in enumerate(frames):
-       
         total += get_score_from_frame(frame)
         if frame == "X":
             total += get_score_from_frame(frames[index + 1])
+        if frame[-1] == "/":
+            total += int(frames[index+1][0])
     return total
 
 
@@ -44,3 +45,7 @@ def test_two_frames_with_strike_and_one():
 
 def test_two_frames_with_strike_and_nine():
     assert get_score_from_game("X 27") == 28
+
+def test_two_frames_with_spare_and_one():
+    assert get_score_from_game("3/ 10") == 12
+
