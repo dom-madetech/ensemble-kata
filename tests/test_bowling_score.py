@@ -9,14 +9,11 @@ def get_score_from_frame(frame):
     return first_roll + second_roll
 
 def get_score_from_game(game):
-    frames = game.split(" ")
+    frame_rolls = game.split(" ")
     total = 0
-    for index, frame in enumerate(frames):
+    for frame_roll in frame_rolls:
+        frame = Frame(frame_roll)
         total += get_score_from_frame(frame)
-        if frame == "X":
-            total += get_score_from_frame(frames[index + 1])
-        if frame[-1] == "/":
-            total += int(frames[index+1][0])
     return total
 
 
@@ -32,11 +29,11 @@ def test_frame_with_score():
 def test_frame_with_spare():
     assert get_score_from_frame(Frame("4/")) == 10
 
-# def test_two_frames_with_no_score():
-#     assert get_score_from_game("00 00") == 0
+def test_two_frames_with_no_score():
+    assert get_score_from_game("00 00") == 0
 
-# def test_two_frames_with_score():
-#     assert get_score_from_game("34 26") == 15
+def test_two_frames_with_score():
+    assert get_score_from_game("34 26") == 15
 
 # def test_two_frames_with_strike_and_no_score():
 #     assert get_score_from_game("X 00") == 10
